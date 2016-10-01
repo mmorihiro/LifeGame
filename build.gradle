@@ -2,14 +2,18 @@ buildscript {
     repositories {
         mavenCentral()
     }
+    ext {
+        appName = 'LearnigTDD'
+        gdxVersion = '1.9.3'
+        kotlinVersion = '1.0.3'
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
 }
 
 allprojects {
     version = '1.0-SNAPSHOT'
-    ext {
-        appName = 'LearnigTDD'
-        gdxVersion = '1.9.3'
-    }
 
     repositories {
         mavenCentral()
@@ -18,22 +22,24 @@ allprojects {
 
 project(":desktop") {
     apply plugin: "java"
-
+    apply plugin: "kotlin"
 
     dependencies {
         compile project(":core")
         compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     }
 }
 
 project(":core") {
     apply plugin: "java"
+    apply plugin: "kotlin"
 
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     }
 
 }
