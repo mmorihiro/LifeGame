@@ -2,7 +2,7 @@ package com.github.mmorihiro.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.github.mmorihiro.core.LifeGame;
+import main.core.LifeGame;
 
 public class DesktopLauncher {
     
