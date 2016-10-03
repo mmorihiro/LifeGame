@@ -1,4 +1,4 @@
-package main.core
+package com.github.mmorihiro.core
 
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
