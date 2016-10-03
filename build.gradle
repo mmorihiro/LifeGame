@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     ext {
-        appName = 'LearnigTDD'
+        appName = 'LifeGame'
         gdxVersion = '1.9.3'
         kotlinVersion = '1.0.4'
     }
