@@ -1,5 +1,8 @@
+#Gradle
 .gradle
-build/
+#IntelliJ IDEA
 .idea
+#Libgdx
+build/
 /core/build/
 /desktop/build/
