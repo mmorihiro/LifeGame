@@ -4,9 +4,9 @@ import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.scenes.scene2d.Stage
-import com.badlogic.gdx.scenes.scene2d.ui.Button
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.ui.Table
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 
 class LifeGame : ApplicationAdapter() {
     val stage by lazy {
@@ -18,7 +18,11 @@ class LifeGame : ApplicationAdapter() {
         val table = Table()
         val skin = Skin(Gdx.files.internal("uiskin.json"))
         table.setFillParent(true)
-        val button = Button(skin)
+        val button = TextButton("not pushed", skin)
+        button.addListener {
+            if (button.isPressed) button.setText("pushed")
+            button.isPressed
+        }
         table.add(button)
         stage.addActor(table)
     }
