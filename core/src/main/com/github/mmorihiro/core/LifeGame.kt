@@ -33,10 +33,6 @@ class LifeGame : ApplicationAdapter() {
         stage.draw()
     }
 
-    override fun resize(width: Int, height: Int) {
-        stage.viewport.update(width, height, true)
-    }
-
     override fun dispose() {
         stage.dispose()
     }
