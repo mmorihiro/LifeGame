@@ -11,6 +11,7 @@ public class DesktopLauncher {
                 new LwjglApplicationConfiguration();
         config.foregroundFPS = 10;
         config.backgroundFPS = 10;
+        config.resizable = false;
         new LwjglApplication(new LifeGame(), config);
     }
 }
