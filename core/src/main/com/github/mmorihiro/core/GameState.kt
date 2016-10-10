@@ -15,9 +15,10 @@ class GameState {
             field = value
         }
     private var canIncrement = false
-    
+
     val stage = Stage()
     private val table = Table()
+    private val buttonTable = Table()
     private val skin = Skin(Gdx.files.internal("uiskin.json"))
     private val startButton = TextButton("start", skin)
     private val label = Label(generation.toString(), skin)
@@ -33,10 +34,13 @@ class GameState {
         val centerY = Gdx.graphics.height / 2f
 
         label.setPosition(centerX, centerY + startButton.height)
-        startButton.setPosition(centerX, centerY)
+        buttonTable.setPosition(centerX, centerY)
 
+        buttonTable.addActor(startButton)
         table.addActor(label)
-        table.addActor(startButton)
+        table.addActor(buttonTable)
+        
+        buttonTable.debug = true
         table.debug = true
         stage.addActor(table)
     }
