@@ -9,40 +9,42 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 
 
 class GameState {
-    var generation = 0
-    get() = field
-    set(value) {
-        field = value
-    }
+    private var generation = 0
+        get() = field
+        set(value) {
+            field = value
+        }
+    private var canIncrement = false
     
     val stage = Stage()
-
     private val table = Table()
     private val skin = Skin(Gdx.files.internal("uiskin.json"))
-    private val button = TextButton("not pushed", skin)
+    private val startButton = TextButton("start", skin)
     private val label = Label(generation.toString(), skin)
 
     init {
         Gdx.input.inputProcessor = stage
         table.setFillParent(true)
-        button.addListener {
-            if (button.isPressed) button.setText("pushed")
-            button.isPressed
+        startButton.addListener {
+            if (startButton.isPressed) canIncrement = true
+            startButton.isPressed
         }
         val centerX = Gdx.graphics.width / 2f
         val centerY = Gdx.graphics.height / 2f
 
-        label.setPosition(centerX, centerY + button.height)
-        button.setPosition(centerX, centerY)
+        label.setPosition(centerX, centerY + startButton.height)
+        startButton.setPosition(centerX, centerY)
 
         table.addActor(label)
-        table.addActor(button)
+        table.addActor(startButton)
         table.debug = true
         stage.addActor(table)
     }
-    
+
     fun incrementGeneration() {
-        generation += 1
-        label.setText(generation.toString())
+        if (canIncrement) {
+            generation += 1
+            label.setText(generation.toString())
+        }
     }
 }
