@@ -5,11 +5,11 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.GL20
 
 class LifeGame : ApplicationAdapter() {
-   private val state by lazy {
+    private val state by lazy {
         GameState()
     }
 
-    private fun stage() = state.stage
+    private fun stage() = state.stage()
 
     override fun render() {
         state.incrementGeneration()
