@@ -21,28 +21,43 @@ class GameState {
     private val buttonTable = Table()
     private val skin = Skin(Gdx.files.internal("uiskin.json"))
     private val startButton = TextButton("start", skin)
+    private val stopButton = TextButton("stop", skin)
     private val label = Label(generation.toString(), skin)
 
     init {
         Gdx.input.inputProcessor = stage
         table.setFillParent(true)
-        startButton.addListener {
-            if (startButton.isPressed) canIncrement = true
-            startButton.isPressed
-        }
-        val centerX = Gdx.graphics.width / 2f
-        val centerY = Gdx.graphics.height / 2f
+        
+        addActionToButtons()
+        setButtonPosition()
 
-        label.setPosition(centerX, centerY + startButton.height)
-        buttonTable.setPosition(centerX, centerY)
-
-        buttonTable.addActor(startButton)
+        buttonTable.add(startButton)
+        buttonTable.add(stopButton)
         table.addActor(label)
         table.addActor(buttonTable)
         
         buttonTable.debug = true
         table.debug = true
         stage.addActor(table)
+    }
+
+    private fun setButtonPosition() {
+        val centerX = Gdx.graphics.width / 2f
+        val centerY = Gdx.graphics.height / 2f
+
+        label.setPosition(centerX, centerY + startButton.height)
+        buttonTable.setPosition(centerX, centerY)
+    }
+
+    private fun addActionToButtons() {
+        startButton.addListener {
+            if (startButton.isPressed) canIncrement = true
+            startButton.isPressed
+        }
+        stopButton.addListener {
+            if (stopButton.isPressed) canIncrement = false
+            stopButton.isPressed
+        }
     }
 
     fun incrementGeneration() {
