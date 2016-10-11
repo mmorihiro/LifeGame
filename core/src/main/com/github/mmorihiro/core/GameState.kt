@@ -45,4 +45,9 @@ class GameState {
         generation += 1
         label.setText(generation.toString())
     }
+
+    fun dispose() {
+        stage.dispose()
+        skin.dispose()
+    }
 }
