@@ -15,7 +15,7 @@ internal class SetUpUILook(generation: Int) {
     private val skin = Skin(Gdx.files.internal("uiskin.json"))
     val stopButton = TextButton("stop", skin)
     val resetButton = TextButton("reset", skin)
-    val label = Label(generation.toString(), skin)
+    val label = Label("generation: " + generation.toString(), skin)
     val startButton = TextButton("start", skin)
     val arrayActor = ArrayActor()
 
@@ -40,10 +40,9 @@ internal class SetUpUILook(generation: Int) {
 
     private fun setPosition() {
         val centerX = Gdx.graphics.width / 2f
-        val centerY = Gdx.graphics.height / 2f
 
-        label.setPosition(centerX, centerY + startButton.height)
-        buttonTable.setPosition(centerX, centerY)
-        arrayActor.setPosition(centerX, label.y)
+        buttonTable.setPosition(centerX - 40, 20f)
+        label.setPosition(centerX - 100, buttonTable.y + startButton.height)
+        arrayActor.setPosition(label.x, label.y + 50)
     }
 }
