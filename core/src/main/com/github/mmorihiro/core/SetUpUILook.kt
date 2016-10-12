@@ -17,12 +17,13 @@ internal class SetUpUILook(generation: Int) {
     val resetButton = TextButton("reset", skin)
     val label = Label(generation.toString(), skin)
     val startButton = TextButton("start", skin)
+    val arrayActor = ArrayActor()
 
     init {
         Gdx.input.inputProcessor = stage
         table.setFillParent(true)
 
-        setButtonPosition()
+        setPosition()
 
         buttonTable.add(startButton)
         buttonTable.add(stopButton)
@@ -32,14 +33,17 @@ internal class SetUpUILook(generation: Int) {
 
         buttonTable.debug = true
         table.debug = true
+
+        stage.addActor(arrayActor)
         stage.addActor(table)
     }
 
-    private fun setButtonPosition() {
+    private fun setPosition() {
         val centerX = Gdx.graphics.width / 2f
         val centerY = Gdx.graphics.height / 2f
 
         label.setPosition(centerX, centerY + startButton.height)
         buttonTable.setPosition(centerX, centerY)
+        arrayActor.setPosition(centerX, label.y)
     }
 }
