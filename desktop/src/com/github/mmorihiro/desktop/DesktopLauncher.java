@@ -9,6 +9,8 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
         LwjglApplicationConfiguration config =
                 new LwjglApplicationConfiguration();
+        config.foregroundFPS = 10;
+        config.backgroundFPS = 10;
         config.resizable = false;
         new LwjglApplication(new LifeGame(), config);
     }
