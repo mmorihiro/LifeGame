@@ -8,14 +8,15 @@ class LifeGame : ApplicationAdapter() {
     private val state by lazy {
         GameState()
     }
-
-    private fun stage() = state.stage()
+    private val stage by lazy {
+        state.stage()
+    }
 
     override fun render() {
         state.incrementGeneration()
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
-        stage().act(Gdx.graphics.deltaTime)
-        stage().draw()
+        stage.act(Gdx.graphics.deltaTime)
+        stage.draw()
     }
 
     override fun dispose() {
