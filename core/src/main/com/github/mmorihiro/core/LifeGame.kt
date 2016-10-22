@@ -19,6 +19,6 @@ class LifeGame : ApplicationAdapter() {
     }
 
     override fun dispose() {
-        stage().dispose()
+        state.dispose()
     }
 }

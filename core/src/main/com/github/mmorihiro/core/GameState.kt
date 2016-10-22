@@ -49,4 +49,8 @@ internal class GameState {
     }
 
     fun stage() = setup.stage
+    
+    fun dispose() {
+        setup.dispose()
+    }
 }

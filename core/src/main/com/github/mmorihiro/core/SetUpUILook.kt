@@ -45,4 +45,9 @@ internal class SetUpUILook(generation: Int) {
         label.setPosition(centerX - 100, buttonTable.y + startButton.height)
         arrayActor.setPosition(label.x, label.y + 50)
     }
+
+    fun dispose() {
+        stage.dispose()
+        skin.dispose()
+    }
 }
