@@ -42,4 +42,9 @@ internal class SetUpUILook(generation: Int) {
         label.setPosition(centerX, centerY + startButton.height)
         buttonTable.setPosition(centerX, centerY)
     }
+
+    fun dispose() {
+        skin.dispose()
+        stage.dispose()
+    }
 }

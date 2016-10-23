@@ -49,8 +49,7 @@ internal class GameState {
     }
 
     fun dispose() {
-        stage.dispose()
-        skin.dispose()
+        setup.dispose()
     }
 
     fun stage() = setup.stage
