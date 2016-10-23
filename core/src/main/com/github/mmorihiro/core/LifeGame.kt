@@ -9,7 +9,7 @@ class LifeGame : ApplicationAdapter() {
         GameState()
     }
     private val stage by lazy {
-        state.stage
+        state.stage()
     }
 
     override fun render() {
