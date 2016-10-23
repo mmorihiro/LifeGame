@@ -50,4 +50,9 @@ internal class SetUpUILook(generation: Int) {
         stage.dispose()
         skin.dispose()
     }
+
+    fun dispose() {
+        skin.dispose()
+        stage.dispose()
+    }
 }

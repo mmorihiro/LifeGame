@@ -5,7 +5,7 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.GL20
 
 class LifeGame : ApplicationAdapter() {
-    private val state by lazy {
+   private val state by lazy {
         GameState()
     }
     private val stage by lazy {
