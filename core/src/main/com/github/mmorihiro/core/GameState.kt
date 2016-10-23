@@ -33,7 +33,7 @@ internal class GameState {
                 setLabelText(generation)
                 canIncrement = false
             }
-            stopButton.isPressed
+            resetButton.isPressed
         }
     }
 
