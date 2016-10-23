@@ -8,7 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor
 
 class ArrayActor : Actor() {
     private val arraySize = 20
-    private var array = Array(arraySize) { BooleanArray(arraySize) { false } }
+    private val array = Array(arraySize) { BooleanArray(arraySize) { false } }
     private val renderer = ShapeRenderer()
     private val size = 10f
 
