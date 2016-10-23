@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.scenes.scene2d.Actor
 
 
-class ArrayActor : Actor() {
+internal class ArrayActor : Actor() {
     private val arraySize = 20
     private val array = Array(arraySize) { BooleanArray(arraySize) { false } }
     private val renderer = ShapeRenderer()
