@@ -38,7 +38,7 @@ internal class GameState {
     }
 
     private fun setLabelText(generation: Int) {
-        setup.label.setText(generation.toString())
+        setup.label.setText("generation: " + generation.toString())
     }
 
     fun incrementGeneration() {
@@ -48,9 +48,9 @@ internal class GameState {
         }
     }
 
+    fun stage() = setup.stage
+    
     fun dispose() {
         setup.dispose()
     }
-
-    fun stage() = setup.stage
 }
