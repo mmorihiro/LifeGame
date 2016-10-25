@@ -4,9 +4,8 @@
 ##Description
 A simple game of life written with Kotlin and libGDX.
 ##Download
-Not released yet. After finish v0.3, first one will be released.
-If you want to try the under development version,
-use `git clone https://github.com/MMorihiro/LifeGame.git`
+Not released yet. After finish v0.3, first one will be released.  
+If you want to try the under development version, use `git clone https://github.com/MMorihiro/LifeGame.git`  
 Then, move to the project root and run `./gradlew run`
 ##How to play
 TODO
