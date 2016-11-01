@@ -30,10 +30,7 @@ internal class SetUpUILook(generation: Int) {
         buttonTable.add(resetButton)
         table.addActor(label)
         table.addActor(buttonTable)
-
-        buttonTable.debug = true
-        table.debug = true
-
+        
         stage.addActor(arrayActor)
         stage.addActor(table)
     }
