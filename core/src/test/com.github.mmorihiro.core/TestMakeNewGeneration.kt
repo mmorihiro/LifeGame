@@ -10,6 +10,7 @@ class TestMakeNewGeneration : WordSpec() {
             "return the same size array" {
                 val expect = 10
                 val array = Array(expect) { BooleanArray(expect) { false } }
+
                 sut.get(array).size shouldBe expect
             }
 
@@ -18,6 +19,7 @@ class TestMakeNewGeneration : WordSpec() {
                 val array = arrayOf(
                         booleanArrayOf(true, true),
                         booleanArrayOf(true, false))
+
                 sut.get(array)[1][1] shouldBe true
             }
 
@@ -40,14 +42,40 @@ class TestMakeNewGeneration : WordSpec() {
                 forAll(table) { x, y -> actual[x][y] shouldBe true }
             }
 
-            "kill the liveing cell adjacent to less than one living cell" {
+            "kill the living cell adjacent to less than one living cell" {
                 val array = arrayOf(
                         booleanArrayOf(false, false, false),
                         booleanArrayOf(false, true, true),
                         booleanArrayOf(false, false, false))
+
                 val actual = sut.get(array)
+
                 actual[1][1] shouldBe false
-                actual[2][1] shouldBe false
+                actual[1][2] shouldBe false
+            }
+
+            "kill the living cell adjacent to more than four living cells" {
+                val array = arrayOf(
+                        booleanArrayOf(true, true, true),
+                        booleanArrayOf(true, true, false),
+                        booleanArrayOf(false, false, false))
+
+                val actual = sut.get(array)
+
+                actual[0][1] shouldBe false
+                actual[1][1] shouldBe false
+            }
+        }
+
+        "BooleanArray.copyOf" should {
+            "return shallow copy" {
+                val array = arrayOf(
+                        booleanArrayOf(true, true, true),
+                        booleanArrayOf(true, true, false),
+                        booleanArrayOf(false, false, false))
+                val copy = array.copyOf()
+                copy[1][1] = false
+                array[1][1] shouldBe false
             }
         }
 
