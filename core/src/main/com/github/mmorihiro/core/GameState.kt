@@ -34,6 +34,10 @@ internal class GameState {
                 generation = 0
                 setLabelText(generation)
                 canIncrement = false
+                setup.arrayActor.changeArray {
+                    it.forEach { it.fill(false) }
+                    it
+                }
             }
             resetButton.isPressed
         }
