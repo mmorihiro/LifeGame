@@ -39,6 +39,16 @@ class TestMakeNewGeneration : WordSpec() {
                         row(2, 2))
                 forAll(table) { x, y -> actual[x][y] shouldBe true }
             }
+
+            "kill the liveing cell adjacent to less than one living cell" {
+                val array = arrayOf(
+                        booleanArrayOf(false, false, false),
+                        booleanArrayOf(false, true, true),
+                        booleanArrayOf(false, false, false))
+                val actual = sut.get(array)
+                actual[1][1] shouldBe false
+                actual[2][1] shouldBe false
+            }
         }
 
     }
