@@ -7,6 +7,7 @@ internal class MakeNewGeneration {
             for (j in array[0].indices) {
                 when (Pair(array[i][j], countSurroundings(array, i, j))) {
                     Pair(false, 3) -> array[i][j] = true
+                    Pair(true, 2), Pair(true, 3) -> array[i][j] = true
                 }
             }
         }
