@@ -3,25 +3,42 @@ package com.github.mmorihiro.core
 
 internal class MakeNewGeneration {
     fun get(array: Array<BooleanArray>): Array<BooleanArray> {
+        val copy = copy(array)
         for (i in array.indices) {
             for (j in array[0].indices) {
-                when (Pair(array[i][j], countSurroundings(array, i, j))) {
-                    Pair(false, 3) -> array[i][j] = true
-                    Pair(true, 2), Pair(true, 3) -> array[i][j] = true
-                    Pair(true, 0), Pair(true, 1) -> array[i][j] = false
+                val pair = Pair(array[i][j], countSurroundings(array, i, j))
+
+                when (pair) {
+                    Pair(false, 3) -> copy[i][j] = true
+                    Pair(true, 2), Pair(true, 3) -> copy[i][j] = true
+                    Pair(true, 0), Pair(true, 1) -> copy[i][j] = false
+                    else ->
+                        if (pair.first == true && pair.second >= 4)
+                            copy[i][j] = false
                 }
             }
         }
-        return array
+
+        return copy
+    }
+
+    private fun copy(array: Array<BooleanArray>): Array<BooleanArray> {
+        val copy = Array(array.size) { BooleanArray(array[0].size) { false } }
+        for (i in array.indices) {
+            for (j in array[0].indices) {
+                copy[i][j] = array[i][j]
+            }
+        }
+        return copy
     }
 
     private fun countSurroundings(array: Array<BooleanArray>,
                                   i: Int, j: Int): Int {
         var surroundings = 0
-        for (x in i - 1..i + 1) {
-            for (y in j - 1..j + 1) {
+        for (y in i - 1..i + 1) {
+            for (x in j - 1..j + 1) {
                 when {
-                    !(x == i && y == j) &&
+                    !(y == i && x == j) &&
                             array[0].indices.contains(x)
                             && array.indices.contains(y)
                             && array[y][x] -> surroundings += 1
