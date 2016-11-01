@@ -13,9 +13,9 @@ internal class ArrayActor : Actor() {
     private val size = 10f
 
     init {
-        array[0][0] = true
+        array[5][4] = true
         array[5][5] = true
-        array[10][10] = true
+        array[5][6] = true
     }
 
     fun changeArray(changer: (Array<BooleanArray>) -> Array<BooleanArray>) {
