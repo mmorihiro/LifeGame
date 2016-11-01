@@ -33,13 +33,13 @@ class TestMakeNewGeneration : WordSpec() {
                         booleanArrayOf(false, false, false, false))
                 val actual = sut.get(array)
 
-                val table = table(
+                val expectAlive = table(
                         headers("x", "y"),
                         row(1, 1),
                         row(1, 2),
                         row(2, 1),
                         row(2, 2))
-                forAll(table) { x, y -> actual[x][y] shouldBe true }
+                forAll(expectAlive) { x, y -> actual[x][y] shouldBe true }
             }
 
             "kill the living cell adjacent to less than one living cell" {
