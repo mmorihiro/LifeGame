@@ -8,6 +8,7 @@ internal class MakeNewGeneration {
                 when (Pair(array[i][j], countSurroundings(array, i, j))) {
                     Pair(false, 3) -> array[i][j] = true
                     Pair(true, 2), Pair(true, 3) -> array[i][j] = true
+                    Pair(true, 0), Pair(true, 1) -> array[i][j] = false
                 }
             }
         }
