@@ -8,7 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor
 
 internal class ArrayActor : Actor() {
     private val arraySize = 20
-    private val array = Array(arraySize) { BooleanArray(arraySize) { false } }
+    private var array = Array(arraySize) { BooleanArray(arraySize) { false } }
     private val renderer = ShapeRenderer()
     private val size = 10f
 
@@ -16,6 +16,10 @@ internal class ArrayActor : Actor() {
         array[0][0] = true
         array[5][5] = true
         array[10][10] = true
+    }
+
+    fun changeArray(changer: (Array<BooleanArray>) -> Array<BooleanArray>) {
+        array = changer(array)
     }
 
     override fun draw(batch: Batch?, parentAlpha: Float) {
