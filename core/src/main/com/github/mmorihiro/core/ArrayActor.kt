@@ -1,5 +1,6 @@
 package com.github.mmorihiro.core
 
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
@@ -12,14 +13,21 @@ internal class ArrayActor : Actor() {
     private val renderer = ShapeRenderer()
     private val size = 10f
 
-    init {
-        array[5][4] = true
-        array[5][5] = true
-        array[5][6] = true
-    }
-
     fun changeArray(changer: (Array<BooleanArray>) -> Array<BooleanArray>) {
         array = changer(array)
+    }
+
+    override fun act(delta: Float) {
+        if (Gdx.input.isTouched) {
+            val xIndex = (Gdx.input.x - x).toInt() / size.toInt()
+            val yIndex = (Gdx.graphics.height -
+                    Gdx.input.y - y).toInt() / size.toInt()
+
+            if (array.indices.contains(yIndex)
+                    && array[0].indices.contains(xIndex)) {
+                array[xIndex][yIndex] = !array[xIndex][yIndex]
+            }
+        }
     }
 
     override fun draw(batch: Batch?, parentAlpha: Float) {
