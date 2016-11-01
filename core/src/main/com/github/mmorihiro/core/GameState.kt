@@ -11,6 +11,8 @@ internal class GameState {
 
     private val setup = SetUpUILook(generation)
 
+    private val newGeneration = MakeNewGeneration()
+
     init {
         addActionToButtons()
     }
@@ -43,6 +45,7 @@ internal class GameState {
 
     fun incrementGeneration() {
         if (canIncrement) {
+            setup.arrayActor.changeArray { newGeneration.get(it) }
             generation += 1
             setLabelText(generation)
         }
