@@ -1,6 +1,7 @@
 # LifeGame
 
 [![Build Status](https://travis-ci.org/mmorihiro/LifeGame.svg?branch=master)](https://travis-ci.org/mmorihiro/LifeGame) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![Demo](demo.gif) 
 ##Description
 A simple game of life written with Kotlin and libGDX.
 ##Download
