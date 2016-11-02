@@ -5,7 +5,7 @@ internal class MakeNewGeneration {
     fun get(array: Array<BooleanArray>): Array<BooleanArray> {
         val copiedArray = copy(array)
         for (i in array.indices) {
-            for (j in array[0].indices) {
+            for (j in array[i].indices) {
                 val pair = Pair(array[i][j], countSurroundings(array, i, j))
 
                 when (pair) {
@@ -25,7 +25,7 @@ internal class MakeNewGeneration {
     private fun copy(array: Array<BooleanArray>): Array<BooleanArray> {
         val copy = Array(array.size) { BooleanArray(array[0].size) { false } }
         for (i in array.indices) {
-            for (j in array[0].indices) {
+            for (j in array[i].indices) {
                 copy[i][j] = array[i][j]
             }
         }
@@ -39,9 +39,9 @@ internal class MakeNewGeneration {
             for (x in j - 1..j + 1) {
                 when {
                     !(y == i && x == j) &&
-                            array[0].indices.contains(x)
-                            && array.indices.contains(y)
-                            && array[y][x] -> surroundings += 1
+                        array.indices.contains(y) &&
+                        array[y].indices.contains(x) &&
+                        array[y][x] -> surroundings += 1
                 }
             }
         }
