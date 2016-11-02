@@ -3,23 +3,23 @@ package com.github.mmorihiro.core
 
 internal class MakeNewGeneration {
     fun get(array: Array<BooleanArray>): Array<BooleanArray> {
-        val copy = copy(array)
+        val copiedArray = copy(array)
         for (i in array.indices) {
             for (j in array[0].indices) {
                 val pair = Pair(array[i][j], countSurroundings(array, i, j))
 
                 when (pair) {
-                    Pair(false, 3) -> copy[i][j] = true
-                    Pair(true, 2), Pair(true, 3) -> copy[i][j] = true
-                    Pair(true, 0), Pair(true, 1) -> copy[i][j] = false
+                    Pair(false, 3) -> copiedArray[i][j] = true
+                    Pair(true, 2), Pair(true, 3) -> copiedArray[i][j] = true
+                    Pair(true, 0), Pair(true, 1) -> copiedArray[i][j] = false
                     else ->
                         if (pair.first == true && pair.second >= 4)
-                            copy[i][j] = false
+                            copiedArray[i][j] = false
                 }
             }
         }
 
-        return copy
+        return copiedArray
     }
 
     private fun copy(array: Array<BooleanArray>): Array<BooleanArray> {
