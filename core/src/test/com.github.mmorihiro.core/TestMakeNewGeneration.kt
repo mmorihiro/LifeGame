@@ -14,8 +14,10 @@ class TestMakeNewGeneration : WordSpec() {
                 sut.get(array).size shouldBe expect
             }
 
-            """make new generation
-            when there are three living cell adjacent to one dead cell""" {
+            ("""
+            |make new generation
+            |when there are three living cell adjacent to one dead cell
+            """.trimMargin()) {
                 val array = arrayOf(
                         booleanArrayOf(true, true),
                         booleanArrayOf(true, false))
@@ -23,9 +25,11 @@ class TestMakeNewGeneration : WordSpec() {
                 sut.get(array)[1][1] shouldBe true
             }
 
-            """continue to make them alive
-            if there are two or three living cells 
-            adjacent to the living cell,""" {
+            ("""
+            |continue to make them alive
+            |if there are two or three living cells
+            |adjacent to the living cell
+            """.trimMargin()) {
                 val array = arrayOf(
                         booleanArrayOf(false, false, false, false),
                         booleanArrayOf(false, true, true, false),
